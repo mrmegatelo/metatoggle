@@ -1,0 +1,17 @@
+{
+  "name": "unnamed-featureflags",
+  "version": "0.0.1",
+  "description": "Self hosted feature flag management",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmegatelo/unnamed-featureflags.git"
+  },
+  "author": "Mikhail Ivanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrmegatelo/unnamed-featureflags/issues"
+  },
+  "homepage": "https://github.com/mrmegatelo/unnamed-featureflags#readme"
+}
