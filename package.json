@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "start:dev": "nodemon bin/start_dev.js",
-    "start:prod": "node bin/start_prod.js"
+    "start:prod": "node bin/start_prod.js",
+    "lint:check": "prettier . && eslint .",
+    "lint:fix": "prettier . --write && eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -24,8 +26,15 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.2.0",
     "@rsbuild/plugin-react": "^0.6.15",
-    "@rspack/core": "^0.6.5"
+    "@rspack/core": "^0.6.5",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.2.0",
+    "prettier": "^3.2.5",
+    "typescript-eslint": "^7.9.0"
   },
   "nodemonConfig": {
     "ignore": [
