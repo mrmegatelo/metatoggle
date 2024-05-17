@@ -2,7 +2,9 @@
   "name": "unnamed-featureflags",
   "version": "0.0.1",
   "description": "Self hosted feature flag management",
+  "type": "module",
   "scripts": {
+    "dev": "nodemon src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -13,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/mrmegatelo/unnamed-featureflags/issues"
   },
-  "homepage": "https://github.com/mrmegatelo/unnamed-featureflags#readme"
+  "homepage": "https://github.com/mrmegatelo/unnamed-featureflags#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@rsbuild/plugin-react": "^0.6.15",
+    "@rspack/core": "^0.6.5"
+  }
 }
