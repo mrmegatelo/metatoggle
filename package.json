@@ -4,7 +4,8 @@
   "description": "Self hosted feature flag management",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server/index.js"
+    "start:dev": "nodemon bin/start_dev.js",
+    "start:prod": "node bin/start_prod.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,11 @@
   "devDependencies": {
     "@rsbuild/plugin-react": "^0.6.15",
     "@rspack/core": "^0.6.5"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "public/*",
+      "src/client/*"
+    ]
   }
 }
