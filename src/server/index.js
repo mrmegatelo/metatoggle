@@ -12,15 +12,16 @@ import flagsRouter from "./services/flags/router.js";
  */
 export async function startServer(decorators = []) {
   const app = express();
-  const PORT = process.env.API_PORT || 3001;
+  const port = process.env.API_PORT || 3001;
 
   app.use(cors());
+  app.use(express.json());
 
   decorators.forEach((decorator) => {
     decorator(app);
   });
 
-  app.listen(PORT, () => {
+  app.listen(port, () => {
     console.log("Server is running on http://localhost:3001");
   });
 }

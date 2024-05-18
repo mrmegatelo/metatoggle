@@ -1,9 +1,15 @@
 import { Router } from "express";
+import { createFlag, deleteFlag, getFlag, getFlagsList, updateFlag } from "./handlers.js";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send({ data: [] });
-});
+router.route("/")
+  .get(getFlagsList)
+  .post(createFlag);
+
+router.route("/:id")
+  .get(getFlag)
+  .put(updateFlag)
+  .delete(deleteFlag);
 
 export default router;
