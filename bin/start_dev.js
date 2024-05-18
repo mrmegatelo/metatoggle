@@ -1,7 +1,12 @@
 #! /usr/bin/env node
 import { createRsbuild, loadConfig } from "@rsbuild/core";
-import { startServer } from "../src/server/index.js";
+import { startServer, initApiRoutes } from "../src/server/index.js";
 
+/**
+ * Initializes the Rsbuild development server
+ * @param app
+ * @returns {Promise<void>}
+ */
 async function initRSPackDevServer(app) {
   const rootDir = process.cwd();
   const { content: rsbuildConfig } = await loadConfig({ cwd: rootDir });
@@ -19,4 +24,4 @@ async function initRSPackDevServer(app) {
   httpServer.on("upgrade", rsbuildServer.onHTTPUpgrade);
 }
 
-startServer(initRSPackDevServer);
+startServer([initApiRoutes, initRSPackDevServer]);
