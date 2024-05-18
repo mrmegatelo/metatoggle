@@ -4,8 +4,8 @@
   "description": "Self hosted feature flag management",
   "type": "module",
   "scripts": {
-    "start:dev": "nodemon bin/start_dev.js",
-    "start:prod": "node bin/start_prod.js",
+    "start:dev": "NODE_ENV=development bin/start_dev.js",
+    "start:prod": "NODE_ENV=production bin/start_prod.js",
     "lint:check": "prettier . && eslint .",
     "lint:fix": "prettier . --write && eslint . --fix",
     "prepare": "husky"
@@ -23,9 +23,12 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "knex": "^3.1.0",
     "nodemon": "^3.1.0",
+    "pg": "^8.11.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
@@ -39,12 +42,5 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "typescript-eslint": "^7.9.0"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "public/*",
-      "dist/*",
-      "src/client/*"
-    ]
   }
 }

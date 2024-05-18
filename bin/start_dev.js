@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env nodemon --config nodemon.json
 import { createRsbuild, loadConfig } from "@rsbuild/core";
 import { startServer, initApiRoutes } from "../src/server/index.js";
 
