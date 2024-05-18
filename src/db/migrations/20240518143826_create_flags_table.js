@@ -4,7 +4,8 @@ const tableName = "flags";
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.up = function (knex) {
+export async function up(knex) {
+  console.log("Creating table: ", tableName);
   return knex.schema.createTable(tableName, (table) => {
     table.increments("id");
     table.string("name").notNullable();
@@ -13,12 +14,12 @@ exports.up = function (knex) {
     table.boolean("enabled").defaultTo(true).notNullable();
     table.timestamps(true, true);
   });
-};
+}
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function (knex) {
+export async function down(knex) {
   return knex.schema.dropTable(tableName);
-};
+}

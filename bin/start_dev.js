@@ -24,4 +24,4 @@ async function initRSPackDevServer(app) {
   httpServer.on("upgrade", rsbuildServer.onHTTPUpgrade);
 }
 
-startServer([initApiRoutes, initRSPackDevServer]);
+await startServer([initApiRoutes, initRSPackDevServer]);

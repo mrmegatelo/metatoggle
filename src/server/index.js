@@ -1,9 +1,10 @@
-import 'dotenv/config';
+import "dotenv/config";
 import * as path from "node:path";
 import express from "express";
-import cors  from "cors";
+import cors from "cors";
 
 import flagsRouter from "./services/flags/router.js";
+import authRouter from "./services/auth/router.js";
 
 /**
  * Starts the server and initializes the decorators
@@ -36,6 +37,7 @@ export function initApiRoutes(app) {
   });
 
   app.use("/api/flags", flagsRouter);
+  app.use("/api/auth", authRouter);
 }
 
 /**
