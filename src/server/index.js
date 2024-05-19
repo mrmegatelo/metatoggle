@@ -2,9 +2,13 @@ import "dotenv/config";
 import * as path from "node:path";
 import express from "express";
 import cors from "cors";
+import session from "express-session";
+import knexSession from "connect-session-knex";
+import db from "../db/index.js";
 
 import flagsRouter from "./services/flags/router.js";
 import authRouter from "./services/auth/router.js";
+import { SESSION_MAX_AGE } from "./utils/constants.js";
 
 /**
  * Starts the server and initializes the decorators
@@ -14,7 +18,24 @@ import authRouter from "./services/auth/router.js";
 export async function startServer(decorators = []) {
   const app = express();
   const port = process.env.API_PORT || 3001;
+  const appSessionSecret = process.env.APP_SECRET || "secret";
 
+  const KnexSessionStore = knexSession(session);
+  const sessionStore = new KnexSessionStore({ knex: db });
+
+  app.use(
+    session({
+      store: sessionStore,
+      secret: appSessionSecret,
+      resave: false,
+      saveUninitialized: false,
+      name: "session_id",
+      cookie: {
+        maxAge: SESSION_MAX_AGE,
+        httpOnly: false,
+      },
+    }),
+  );
   app.use(cors());
   app.use(express.json());
 

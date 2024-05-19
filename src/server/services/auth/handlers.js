@@ -22,6 +22,7 @@ export async function authenticate(req, res) {
       throw new Error("Invalid password");
     }
 
+    req.session.user = data;
     res.json({ success: true });
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -19,7 +19,8 @@ export default function ({ children }) {
     // and set the isAuthenticated state accordingly
     // TODO - think about the security implications of this.
     //  It might be better to have a server-side check
-    const token = Cookies.get("token");
+    const token = Cookies.get("session_id");
+    console.log(token);
     if (token) {
       setIsAuthenticated(true);
     }
