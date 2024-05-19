@@ -1,7 +1,9 @@
 import db from "../index.js";
 
-export async function createUser({ username, password, email }) {
-  const [result] = await db("users").insert({ username, password, email }).returning(["id", "username", "email"]);
+export async function createUser({ username, password_hash, email, salt }) {
+  const [result] = await db("users")
+    .insert({ username, password_hash, salt, email })
+    .returning(["id", "username", "email"]);
   return result;
 }
 

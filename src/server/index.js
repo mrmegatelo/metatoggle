@@ -4,6 +4,8 @@ import express from "express";
 import cors from "cors";
 import session from "express-session";
 import knexSession from "connect-session-knex";
+import passport from "passport";
+
 import db from "../db/index.js";
 
 import flagsRouter from "./services/flags/router.js";
@@ -36,6 +38,8 @@ export async function startServer(decorators = []) {
       },
     }),
   );
+  app.use(passport.authenticate("session"));
+
   app.use(cors());
   app.use(express.json());
 
