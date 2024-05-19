@@ -10,13 +10,10 @@ export default function AuthForm() {
   };
 
   return (
-    <div>
-      <h2>AuthForm</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="Username" />
-        <input type="password" name="password" placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="username" placeholder="Username" />
+      <input type="password" name="password" placeholder="Password" />
+      <button type="submit">Login</button>
+    </form>
   );
 }

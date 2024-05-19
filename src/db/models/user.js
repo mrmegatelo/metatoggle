@@ -5,6 +5,6 @@ export async function createUser({ username, password, email }) {
   return result;
 }
 
-export function findUserByName({ username }) {
+export async function findUserByName({ username }) {
   return db("users").where({ username }).first();
 }

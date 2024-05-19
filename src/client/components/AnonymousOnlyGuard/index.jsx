@@ -5,7 +5,7 @@ export default function AnonymousOnlyGuard({ children }) {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
   if (isAuthenticated) {
-    return <Navigate to="/dashboard" state={{ from: location }} replace />;
+    return <Navigate to="/" state={{ from: location }} replace />;
   }
   return children;
 }
