@@ -8,7 +8,7 @@ export default function FlagsList() {
   }, []);
   return (
     <div>
-      <h1>Flags List</h1>
+      <h2>Flags List</h2>
       <ul>
         {flags.map((flag) => (
           <li key={flag.id}>{flag.name}</li>

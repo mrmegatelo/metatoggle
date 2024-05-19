@@ -60,7 +60,12 @@ export function initApiRoutes(app) {
   app.get("/api", (req, res) => {
     res.send("API is working!");
   });
-
+  app.use("/api/*", (req, res, next) => {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.status(401).json({ message: "Unauthorized" });
+  });
   app.use("/api/flags", flagsRouter);
   app.use("/api/auth", authRouter);
 }

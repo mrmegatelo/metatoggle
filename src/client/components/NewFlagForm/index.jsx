@@ -7,6 +7,7 @@ export function NewFlagForm() {
     const form = event.target;
     const flag = {
       name: form.elements.name.value,
+      description: form.elements.description.value,
     };
     createFlag(flag).then(() => {
       form.reset();
@@ -20,6 +21,10 @@ export function NewFlagForm() {
         <label>
           Name:
           <input name="name" type="text" />
+        </label>
+        <label>
+          Description:
+          <textarea name="description" />
         </label>
         <button type="submit">Submit</button>
       </form>

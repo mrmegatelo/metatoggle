@@ -5,11 +5,13 @@ import Main from "./pages/main.jsx";
 import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import Dashboard from "./pages/dashboard.jsx";
+import { NewToggle } from "./pages/new-toggle.jsx";
 
 const routes = createRoutesFromElements(
   <Route element={<Main />}>
     <Route path="login" element={<Login />} />
     <Route path="register" element={<Register />} />
+    <Route path="newt-toggle" element={<NewToggle />} />
     <Route path="/" element={<Dashboard />} />
   </Route>,
 );

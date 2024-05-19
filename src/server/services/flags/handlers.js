@@ -1,10 +1,13 @@
+import { createNewFlag, getUserFlags } from "../../../db/models/flag.js";
+
 /**
  * Get list of flags
  * @param req
  * @param res
  */
-export function getFlagsList(req, res) {
-  res.json({ data: [] });
+export async function getFlagsList(req, res) {
+  const data = await getUserFlags({ user_id: req.user.id });
+  res.json({ data });
 }
 
 /**
@@ -12,12 +15,10 @@ export function getFlagsList(req, res) {
  * @param req
  * @param res
  */
-export function createFlag(req, res) {
+export async function createFlag(req, res) {
+  const data = await createNewFlag({ user_id: req.user.id, ...req.body });
   res.json({
-    data: {
-      ...req.body,
-      id: 1
-    }
+    data: data,
   });
 }
 
@@ -30,8 +31,8 @@ export function getFlag(req, res) {
   res.json({
     data: {
       id: req.params.id,
-      name: "Flag 1"
-    }
+      name: "Flag 1",
+    },
   });
 }
 
@@ -44,8 +45,8 @@ export function updateFlag(req, res) {
   res.json({
     data: {
       ...req.body,
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   });
 }
 
