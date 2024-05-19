@@ -1,5 +1,0 @@
-{
-  "nodemonConfig": {
-    "ignore": ["public/*", "dist/*", "src/client/*"]
-  }
-}
