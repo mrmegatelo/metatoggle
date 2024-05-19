@@ -1,5 +1,4 @@
 import AuthProvider from "./contexts/auth.jsx";
-import useAuth from "./hooks/useAuth.js";
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from "react-router-dom";
 import Main from "./pages/main.jsx";
 import Login from "./pages/login.jsx";

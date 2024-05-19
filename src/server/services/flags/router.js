@@ -3,13 +3,8 @@ import { createFlag, deleteFlag, getFlag, getFlagsList, updateFlag } from "./han
 
 const router = Router();
 
-router.route("/")
-  .get(getFlagsList)
-  .post(createFlag);
+router.route("/").get(getFlagsList).post(createFlag);
 
-router.route("/:id")
-  .get(getFlag)
-  .put(updateFlag)
-  .delete(deleteFlag);
+router.route("/:id").get(getFlag).put(updateFlag).delete(deleteFlag);
 
 export default router;
