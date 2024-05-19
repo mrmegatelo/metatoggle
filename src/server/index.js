@@ -60,13 +60,8 @@ export function initApiRoutes(app) {
   app.get("/api", (req, res) => {
     res.send("API is working!");
   });
-  app.use("/api/*", (req, res, next) => {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.status(401).json({ message: "Unauthorized" });
-  });
-  app.use("/api/flags", flagsRouter);
+
+  app.use("/api/flags", checkAuth, flagsRouter);
   app.use("/api/auth", authRouter);
 }
 
@@ -79,4 +74,11 @@ export function initUIRoutes(app) {
     res.sendFile(path.resolve(process.cwd(), "dist/index.html"));
   };
   app.get("*", sendReactApp);
+}
+
+function checkAuth(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.status(401).json({ message: "Unauthorized" });
 }
