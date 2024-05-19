@@ -11,7 +11,7 @@ export function NewFlagForm() {
     createFlag(flag).then(() => {
       form.reset();
     });
-  }
+  };
 
   return (
     <div>
