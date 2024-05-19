@@ -1,5 +1,5 @@
 {
-  "name": "unnamed-featureflags",
+  "name": "metatoggle",
   "version": "0.0.1",
   "description": "Self hosted feature flag management",
   "type": "module",

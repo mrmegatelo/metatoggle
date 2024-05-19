@@ -12,13 +12,13 @@ services:
       context: .
     depends_on:
       - postgres
-    container_name: unnamed.featureflags.app
+    container_name: metatoggle.app
     ports:
       - "3001:3001"
 
   postgres:
     image: postgres:13.0-alpine
-    container_name: unnamed.featureflags.postgres
+    container_name: metatoggle.postgres
     command: -c 'max_connections=512'
     environment:
       - POSTGRES_USER=postgres
