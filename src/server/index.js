@@ -1,4 +1,3 @@
-import "dotenv/config";
 import * as path from "node:path";
 import express from "express";
 import cors from "cors";
@@ -15,11 +14,11 @@ import { SESSION_MAX_AGE } from "./utils/constants.js";
 /**
  * Starts the server and initializes the decorators
  * @param decorators
+ * @param port
  * @returns {Promise<void>}
  */
-export async function startServer(decorators = []) {
+export async function startServer(decorators = [], port) {
   const app = express();
-  const port = process.env.API_PORT || 3001;
   const appSessionSecret = process.env.APP_SECRET || "secret";
 
   const KnexSessionStore = knexSession(session);
@@ -44,11 +43,7 @@ export async function startServer(decorators = []) {
   app.use(express.json());
 
   decorators.forEach((decorator) => {
-    decorator(app);
-  });
-
-  app.listen(port, () => {
-    console.log("Server is running on http://localhost:3001");
+    decorator(app, port);
   });
 }
 
